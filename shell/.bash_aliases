@@ -1,7 +1,6 @@
 # setting some aliases
 #
 
-
 # 1. ps:   Feed the list of processes to fzf
 # 2. fzf:  Interactively select a process using fuzzy matching algorithm
 # 3. awk:  Take the PID from the selected line
