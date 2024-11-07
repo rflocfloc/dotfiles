@@ -24,3 +24,9 @@ truncation_length = 4
 truncation_symbol = '.../'
 format = '[$path]($style)[$read_only]($read_only_style) ' 
 
+
+[hostname]
+ssh_only = true
+format = '[$ssh_symbol$hostname]($style):'
+trim_at = '.companyname.com'
+disabled = false
