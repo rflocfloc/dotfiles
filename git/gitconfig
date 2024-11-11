@@ -1,0 +1,27 @@
+[user]
+        name = rflocfloc
+        email = riccardoscandino@gmail.com
+
+[color]
+	ui	= auto
+
+[pretty]
+	better-oneline = "format:%C(auto)%h%d %s %Cblue[%cn]"
+
+[alias]
+	s	= status
+	c	= commit
+	co	= checkout
+
+	a   = !cd ${GIT_PREFIX:-.} && git add . && git s
+	aa  = !git add -A && git s
+ 	ac  = !cd ${GIT_PREFIX:-.} && git add . && git c
+	aac = !git add -A && git c
+
+	tree    = log --pretty=better-oneline --all --graph
+	ls      = log --pretty=better-oneline
+	ll      = log --pretty=better-oneline --numstat
+	details = "!f() { git ll "$1"^.."$1"; }; f"
+
+	
+
