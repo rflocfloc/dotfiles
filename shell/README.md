@@ -9,7 +9,7 @@ if [ -f ~/.dotfiles/bash_aliases ]; then
 fi
 ```
 
-therefore:
+You can do that with:
 ```
 echo -e "## external aliases \nif [ -f ~/.dotfiles/shell/bash_aliases ]; then \n\t. ~/.dotfiles/shell/bash_aliases \nfi" >> ~/.bashrc
 ```
