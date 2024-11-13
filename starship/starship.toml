@@ -1,5 +1,3 @@
-# Get editor completions based on the config schema
-"$schema" = 'https://starship.rs/config-schema.json'
 
 # Sets user-defined palette
 # Palettes must be defined _after_ this line
@@ -9,34 +7,38 @@ palette = "catppuccin_mocha"
 format = "$hostname$directory$conda$git_branch$git_status$character"
 
 [character]
-success_symbol = "[>](bold green)"
-error_symbol = "[x](bold red)"
-vimcmd_symbol = "[<](bold green)"
+success_symbol = "[ >](bold green)"
+error_symbol = "[ x](bold red)"
+vimcmd_symbol = "[ <](bold green)"
 
 [git_status]
-format = '([\[$all_status$ahead_behind\]]($style)) '
+format = '([\[$all_status$ahead_behind\]]($style))'
 
 [git_branch]
 symbol = " "
-format = '[\[$symbol$branch\]]($style) '
+format = '\[[$symbol$branch]($style)\]'
+style = "bold lavender"
 
 [conda]
 symbol = '🅒 ' 
-format = '[\[$symbol$environment\]]($style) '
+format = '\[[$symbol$environment]($style)\]'
 ignore_base = false
+style = 'bold teal'
 
 [directory]
 read_only = " "
 truncation_length = 4
 truncation_symbol = '.../'
 format = '[$path]($style)[$read_only]($read_only_style) ' 
+style = "bold mauve"
 
 
 [hostname]
 ssh_only = true
-format = '[$ssh_symbol$hostname:]($style) '
+format = '[$ssh_symbol$hostname: ]($style)'
 trim_at = '.companyname.com'
 disabled = false
+style = "bold flamingo"
 
 # Palette definitions
 [palettes.catppuccin_latte]
