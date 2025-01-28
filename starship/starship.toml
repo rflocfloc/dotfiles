@@ -4,7 +4,7 @@
 palette = "catppuccin_mocha"
 
 # Minimal left prompt
-format = "$hostname$directory$conda$git_branch$git_status$character"
+format = "$hostname$directory$vagrant$conda$git_branch$git_status$character"
 
 [character]
 success_symbol = "[ ](bold green)"
@@ -24,6 +24,12 @@ symbol = '🅒 '
 format = '[\[$symbol$environment\]]($style)'
 ignore_base = false
 style = 'bold teal'
+
+[vagrant]
+format = '[\[[$symbol$version]($style)\]]($style)'
+style = 'bold cyan'
+version_format = '${raw}'
+symbol = 'V '
 
 [directory]
 read_only = " "
