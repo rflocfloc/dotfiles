@@ -33,7 +33,7 @@ symbol = 'V '
 
 [directory]
 read_only = " "
-truncation_length = 4
+truncation_length = 2
 truncation_symbol = '.../'
 format = '[$path]($style)[$read_only]($read_only_style) ' 
 style = "bold mauve"
