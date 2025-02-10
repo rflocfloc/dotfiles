@@ -3,5 +3,5 @@
 git configuration file.
 
 ```
-ln -s ~/.dotfiles/git/gitconfig ~/.gitconfig
+ln -sf ~/.dotfiles/git/gitconfig ~/.gitconfig
 ```
