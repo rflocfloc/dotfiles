@@ -3,6 +3,7 @@
 alias ls='ls --color=auto'
 alias ll="ls -lah --color=auto"
 alias l.='ls -d .* --color=auto'
+alias ld="ls -lh --group-directories-first --color=auto"
 
 ## cd
 alias cd..="cd .."
@@ -17,4 +18,3 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
 ## productivity
-alias c="clear"
