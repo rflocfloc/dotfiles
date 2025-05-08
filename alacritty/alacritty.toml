@@ -1,0 +1,19 @@
+
+general.import = ["~/.dotfiles/alacritty/aura-theme.toml",]
+
+general.live_config_reload= true
+
+[window]
+decorations= "Full"
+startup_mode= "Maximized"
+padding = {x=10, y=10}
+dynamic_padding = true
+dynamic_title = false
+title = "Alacritty"
+decorations_theme_variant = "Dark"
+resize_increments = true
+
+[font]
+normal = {family="Dank Mono Nerd Font"}
+size = 14
+

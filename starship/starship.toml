@@ -1,7 +1,7 @@
 
 # Sets user-defined palette
 # Palettes must be defined _after_ this line
-palette = "catppuccin_mocha"
+palette = "aura_dark"
 
 # Minimal left prompt
 format = "$hostname$directory$vagrant$conda$git_branch$git_status$character"
@@ -17,17 +17,14 @@ format = '([\[$all_status$ahead_behind\]]($style))'
 [git_branch]
 symbol = " "
 format = '[\[$symbol$branch\]]($style)'
-style = "bold lavender"
 
 [conda]
 symbol = '🅒 ' 
 format = '[\[$symbol$environment\]]($style)'
 ignore_base = false
-style = 'bold teal'
 
 [vagrant]
 format = '[\[[$symbol$version]($style)\]]($style)'
-style = 'bold cyan'
 version_format = '${raw}'
 symbol = 'V '
 
@@ -36,7 +33,6 @@ read_only = " "
 truncation_length = 2
 truncation_symbol = '.../'
 format = '[$path]($style)[$read_only]($read_only_style) ' 
-style = "bold mauve"
 
 
 [hostname]
@@ -44,7 +40,6 @@ ssh_only = true
 format = '[$ssh_symbol$hostname: ]($style)'
 trim_at = '.companyname.com'
 disabled = false
-style = "bold flamingo"
 
 # Palette definitions
 [palettes.catppuccin_latte]
@@ -158,3 +153,17 @@ surface0 = "#313244"
 base = "#1e1e2e"
 mantle = "#181825"
 crust = "#11111b"
+
+[palettes.aura_dark]
+purple_1 = "#a277ff"
+purple_2 = "#3d375e7f"
+purple_3 = "#29263c"
+green = "#61ffca"
+orange = "#ffca85"
+pink = "#f694ff"
+blue = "#82e2ff"
+red = "#ff6767"
+white = "#edecee"
+gray = "#6d6d6d"
+black = "#15141b"
+

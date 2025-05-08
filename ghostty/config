@@ -1,9 +1,28 @@
+# This is the configuration file for Ghostty.
+#
+#
+# Run `ghostty +show-config --default --docs` to view a list of
+# all available config options and their default values.
+#
 
 
-#font-feature = -liga
-window-padding-color = background
-theme = "Espresso" 
+# Themes and interface
+#
+font-family = "Dank Mono"
+theme = Aura
 
-# keybinds
-keybind = ctrl+shift+f=toggle_fullscreen
-keybind = ctrl+shift+s=toggle_tab_overview
+
+# Windows
+#
+maximize = true
+gtk-titlebar = true
+
+
+# System options 
+#
+shell-integration-features = sudo
+shell-integration = detect
+copy-on-select = true
+
+# Keybindings
+#
