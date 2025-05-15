@@ -1,7 +1,7 @@
 
 # Sets user-defined palette
 # Palettes must be defined _after_ this line
-palette = "aura_dark"
+palette = "tokyonight"
 
 # Minimal left prompt
 format = "$hostname$directory$vagrant$conda$git_branch$git_status$character"
@@ -167,3 +167,13 @@ white = "#edecee"
 gray = "#6d6d6d"
 black = "#15141b"
 
+[palettes.tokyonight]
+blue = "#3d59a1"
+lightblue = "#7aa2f7"
+green = "#4fd6be"
+purple = "#9d7cd8"
+pink = "#bb9af7"
+orange = "#ff9e64"
+black = "#1f2335"
+gray = "#545c7e"
+red = "#c53b53"
