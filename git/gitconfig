@@ -2,6 +2,12 @@
         name = rflocfloc
         email = riccardoscandino@gmail.com
 
+[includeIf "gitdir:~/Projects/Personal/"]
+    path = ~/.gitconfig_personal
+
+[includeIf "gitdir:~/Projects/Work/"]
+    path = ~/.gitconfig_work
+
 [color]
 	ui	= auto
 
