@@ -10,7 +10,7 @@
 #
 font-family = "Dank Mono"
 #theme = tokyonight
-theme = gruvbox-material 
+theme = GruvboxDarkHard 
 background-opacity = 1 
 
 
