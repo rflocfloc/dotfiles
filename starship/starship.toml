@@ -5,7 +5,18 @@
 add_newline = false
 
 # Minimal left prompt
-format = "$hostname$directory$vagrant$conda$git_branch$git_status$character"
+format = """$hostname\
+	 $directory\
+	 $vagrant\
+	 $conda\
+	 $git_branch$git_status\
+	 $character"""
+
+[username]
+show_always = true
+#style_user = "bg:color_orange fg:color_fg0"
+#style_root = "bg:color_orange fg:color_fg0"
+format = '[ $user ]($style)'
 
 [character]
 success_symbol = "[ ](bold green)"
@@ -31,13 +42,48 @@ symbol = 'V '
 
 [directory]
 read_only = " "
-truncation_length = 2
+truncation_length = 3
 truncation_symbol = '.../'
+truncate_to_repo = false
 format = '[$path]($style)[$read_only]($read_only_style) ' 
 
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = "󰝚 "
+"Pictures" = " "
+"Projects" = "󰲋 "
+
+[os]
+disabled = false
+#style = "bg:color_orange fg:color_fg0"
+
+[os.symbols]
+Windows = "󰍲"
+Ubuntu = "󰕈"
+SUSE = ""
+Raspbian = "󰐿"
+Mint = "󰣭"
+Macos = "󰀵"
+Manjaro = ""
+Linux = "󰌽"
+Gentoo = "󰣨"
+Fedora = "󰣛"
+Alpine = ""
+Amazon = ""
+Android = ""
+Arch = "󰣇"
+Artix = "󰣇"
+EndeavourOS = ""
+CentOS = ""
+Debian = "󰣚"
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"
+Pop = ""
 
 [hostname]
 ssh_only = true
 format = '[$ssh_symbol$hostname: ]($style)'
 trim_at = '.companyname.com'
 disabled = false
+

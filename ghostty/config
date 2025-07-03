@@ -8,7 +8,7 @@
 
 # Themes and interface
 #
-font-family = "Dank Mono"
+#font-family = "Dank Mono"
 #theme = tokyonight
 theme = GruvboxDarkHard 
 background-opacity = 1 
