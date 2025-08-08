@@ -10,7 +10,7 @@
 #
 font-family = "Dank Mono"
 #theme = GitHub-Dark-Colorblind
-theme = rose-pine 
+theme = "rose-pine" 
 background-opacity = 1 
 
 
