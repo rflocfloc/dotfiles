@@ -1,7 +1,7 @@
 # README
-
 tmux configuration file.
 
-```
-ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
+Manual symlink:
+```shell
+ln -s ~/.dotfiles/tmux/.tmux.conf ~/.tmux.conf
 ```

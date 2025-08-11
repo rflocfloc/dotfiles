@@ -1,15 +1,21 @@
 # README
 
-Aliases to add to bashrc.
+`bashrc` extension directory.
 Add to bashrc the following code:
 
-```
-if [ -f ~/.dotfiles/bash_aliases ]; then
-    . ~/.dotfiles/bash_aliases
+```shell
+# User extensions bashrc scripts
+if [ -d ~/.bashrc.d ]; then
+    for rc in ~/.bashrc.d/*; do
+        if [ -f "$rc" ]; then
+            . "$rc"
+        fi
+    done
 fi
+unset rc
 ```
 
-You can do that with:
-```
-echo -e "## external aliases \nif [ -f ~/.dotfiles/shell/bash_aliases ]; then \n\t. ~/.dotfiles/shell/bash_aliases \nfi" >> ~/.bashrc
+Manual symlink:
+```shell
+ls -s ~/.dotfiles/.bashrc.d ~/.bashrc.d
 ```

@@ -1,7 +1,7 @@
 # README
-
 vim configuration file.
 
-```
-ln -s ~/.dotfiles/vim/vimrc ~/.vimrc
+Manual symlink:
+```shell
+ln -s ~/.dotfiles/vim/.vimrc ~/.vimrc
 ```
