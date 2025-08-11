@@ -12,7 +12,7 @@ font-family = "Dank Mono"
 #theme = GitHub-Dark-Colorblind
 theme = "rose-pine" 
 background-opacity = 1 
-
+background = "#141415"
 
 # Windows
 #
