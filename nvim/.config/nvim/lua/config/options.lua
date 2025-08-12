@@ -32,7 +32,7 @@ vim.o.showmode = false                           -- Don't show mode in command l
 vim.o.pumheight = 10                             -- Popup menu height 
 vim.o.list = true                                  -- Sets how neovim will display certain whitespace characters in the editor.
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
-vim.o.winborder = "rounded"                        -- border of popup windows (like hover)
+-- vim.o.winborder = "rounded"                        -- border of popup windows (like hover)
 
 -- File handling
 vim.o.undofile = true                            -- Persistent undo
