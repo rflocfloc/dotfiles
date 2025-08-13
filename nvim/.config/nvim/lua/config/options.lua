@@ -49,7 +49,9 @@ vim.o.inccommand = 'split'                         -- Preview substitutions live
 -- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
 -- instead raise a dialog asking if you wish to save the current file(s)
 vim.o.confirm = true
--- vim.o.clipboard = 'unnamedplus'                  -- sync clipboard with system clipboard
+-- vim.schedule(function()
+--   vim.o.clipboard = 'unnamedplus'
+-- end)                  -- sync clipboard with system clipboard
 
 
 -- Cursor settings
