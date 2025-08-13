@@ -22,7 +22,7 @@ selection-background = #252530
 selection-foreground = #cdcdcd
 
 # -- [[ Themes and interface ]]
-font-family = "Dank Mono"
+font-family = "OverpassM Nerd Font Mono"
 # theme = "rose-pine" 
 
 # -- [[ Windows ]]
