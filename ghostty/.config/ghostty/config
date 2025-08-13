@@ -1,44 +1,38 @@
-# This is the configuration file for Ghostty.
-#
-#
-# Run `ghostty +show-config --default --docs` to view a list of
-# all available config options and their default values.
-#
+# -- [[ Colorscheme ]]
+palette = 0=#252530
+palette = 1=#d8647e
+palette = 2=#7fa563
+palette = 3=#f3be7c
+palette = 4=#6e94b2
+palette = 5=#bb9dbd
+palette = 6=#aeaed1
+palette = 7=#cdcdcd
+palette = 8=#606079
+palette = 9=#e08398
+palette = 10=#99b782
+palette = 11=#f5cb96
+palette = 12=#8ba9c1
+palette = 13=#c9b1ca
+palette = 14=#bebeda
+palette = 15=#d7d7d7
+background = #141415
+foreground = #cdcdcd
+cursor-color = #cdcdcd
+selection-background = #252530
+selection-foreground = #cdcdcd
 
-
-# Themes and interface
-#
+# -- [[ Themes and interface ]]
 font-family = "Dank Mono"
-#theme = GitHub-Dark-Colorblind
-theme = "rose-pine" 
-background-opacity = 1 
-background = "#141415"
+# theme = "rose-pine" 
 
-# Windows
-#
+# -- [[ Windows ]]
 maximize = true
 gtk-titlebar = false
 
-
-# System options 
-#
+# -- [[ System options ]]
 shell-integration-features = sudo
 shell-integration = detect
 copy-on-select = true
 
-# drop down terminal
-#
-keybind = global:super+ctrl+t=toggle_quick_terminal
-quick-terminal-position = bottom
-
-# Keybindings
-#
-keybind=ctrl+[=previous_tab
-keybind=ctrl+]=next_tab
-
-keybind=ctrl+alt+v=new_split:right
-keybind=ctrl+alt+h=new_split:down
-
-keybind=ctrl+alt+f=toggle_split_zoom
-keybind=ctrl+alt+s=toggle_tab_overview
+# -- [[ Keybindings ]]
 
