@@ -32,6 +32,12 @@ ln -s ~/.dotfiles/git/.gitconfig_personal ~/.gitconfig_personal
 ln -s ~/.dotfiles/git/.gitconfig_work ~/.gitconfig_work
 ```
 
+### jj
+```shell
+ln -s ~/.dotfiles/jj/.config/jj/ ~/.config/jj
+ls -s ~/.dotfiles/jj/.bashrc.d/* ~/.bashrc.d/
+```
+
 ### bash
 ```shell
 mkdir -p ~/.bashrc.d
@@ -51,8 +57,15 @@ ls -s ~/.dotfiles/starship/.bashrc.d/* ~/.bashrc.d/
 ```shell
 ln -s ~/.dotfiles/tmux/.tmux.conf ~/.tmux.conf
 ```
+
 ### vim
 
 ```shell
 ln -s ~/.dotfiles/vim/.vimrc ~/.vimrc
+```
+
+### nvim
+
+```shell
+ln -s ~/.dotfiles/nvim/.config/nvim/ ~/.config/nvim
 ```
