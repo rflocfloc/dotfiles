@@ -1,7 +1,7 @@
 " -----------------
 " [[ Colorscheme ]]
 " -----------------
-colorscheme retrobox
+colorscheme default
 
 " -------------
 " [[ Keymaps ]]
@@ -47,8 +47,8 @@ xnoremap <leader>r "hy:%s/<C-r>h//g<left><left>
 " Basic settings
 set number                                    " Line numbers
 set relativenumber                            " Relative line numbers
-set nocursorline                              " Highlight current line
-set nowrap                                    " Wrap lines
+set nocursorline                              " No highlight current line
+set nowrap                                    " Do not wrap lines
 set scrolloff=10                              " Keep 10 lines above/below cursor 
 set sidescrolloff=8                           " Keep 8 columns left/right of cursor
 
@@ -69,7 +69,7 @@ set incsearch                             " Show matches as you type
 
 " Visual settings
 set termguicolors                        " Enable 24-bit colors
-set signcolumn=auto                           " Always show sign column
+set signcolumn=auto                           " Auto show sign column
 set showmatch                            " Highlight matching brackets
 set matchtime=2                          " How long to show matching bracket
 set cmdheight=1                          " Command line height
@@ -87,4 +87,3 @@ set backspace=indent,eol,start             " Better backspace behavior
 set mouse=a                                " Enable mouse support
 set splitbelow                           " Horizontal splits go below
 set splitright                           " Vertical splits go right
-
