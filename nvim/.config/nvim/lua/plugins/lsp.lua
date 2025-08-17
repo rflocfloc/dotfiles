@@ -4,7 +4,6 @@ vim.pack.add({
   { src = "https://github.com/mason-org/mason.nvim.git"},
 })
 
-
 -- [[ Plugin Setup ]]
 require("mason").setup({
   ui = {
