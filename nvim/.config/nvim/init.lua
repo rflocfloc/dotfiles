@@ -16,3 +16,6 @@ require "plugins.nvim-ansible" -- LSP config for ansible
 
 -- [[ Colorscheme ]]
 require "plugins.colorscheme"
+
+-- [[ Games ]]
+vim.pack.add({"https://github.com/ThePrimeagen/vim-be-good.git"})
