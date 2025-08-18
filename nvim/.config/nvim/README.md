@@ -26,6 +26,7 @@ The four main configuration places of this configuration are:
     * `keymaps`, containing custom mappings
     * `options`, global options of the editor
     * `autocmds`, commands that respond to global events
+    * `lsp`, LSP options, *enabling*, and keymaps
 
 - `ftplugin/` directory is for **filetype-specific** plugins and settings. Files placed here are only loaded when you open a file of the corresponding type.
 - `lua/` designed for *modular Lua-based configuration*. These files
