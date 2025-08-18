@@ -13,6 +13,7 @@ require "plugins.fzf-lua"
 require "plugins.lualine"
 require "plugins.which-key"
 require "plugins.nvim-ansible" -- LSP config for ansible
+require "plugins.render-markdown"
 
 -- [[ Colorscheme ]]
 require "plugins.colorscheme"
