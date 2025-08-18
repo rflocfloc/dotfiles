@@ -1,20 +1,3 @@
--- [[ Add Plugin ]]
-vim.pack.add({
-  { src = "https://github.com/neovim/nvim-lspconfig.git"},
-  { src = "https://github.com/mason-org/mason.nvim.git"},
-})
-
--- [[ Plugin Setup ]]
-require("mason").setup({
-  ui = {
-        icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗"
-        }
-    }
-})
-
 --- [[ Autocomand ]]
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup("UserConfig_LSP_enable", { clear = true }),

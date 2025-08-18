@@ -7,12 +7,12 @@ vim.g.have_nerd_font = true	-- Set to true if you have a Nerd Font installed and
 require "utils.floating_terminal"
 
 -- [[ Loading Plugins ]]
-require "plugins.lsp"
+require "plugins.mason"
+require "plugins.nvim-ansible" -- LSP config for ansible
 require "plugins.treesitter"
 require "plugins.fzf-lua"
 require "plugins.lualine"
 require "plugins.which-key"
-require "plugins.nvim-ansible" -- LSP config for ansible
 require "plugins.render-markdown"
 
 -- [[ Colorscheme ]]
