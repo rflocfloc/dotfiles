@@ -23,6 +23,7 @@ selection-foreground = #cdcdcd
 
 # -- [[ Themes and interface ]]
 font-family = "OverpassM Nerd Font Mono"
+# font-family = "JetBrainsMono Nerd Font"
 
 # -- [[ Windows ]]
 maximize = true
