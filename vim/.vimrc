@@ -1,7 +1,7 @@
 " -----------------
 " [[ Colorscheme ]]
 " -----------------
-colorscheme default
+colorscheme slate
 
 " -------------
 " [[ Keymaps ]]
