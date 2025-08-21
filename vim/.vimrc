@@ -41,6 +41,8 @@ xnoremap <leader>d "_d
 " Replace selection in file
 xnoremap <leader>r "hy:%s/<C-r>h//g<left><left>
 
+
+
 " -------------
 " [[ Options ]]
 " -------------
@@ -51,6 +53,11 @@ set nocursorline                              " No highlight current line
 set nowrap                                    " Do not wrap lines
 set scrolloff=10                              " Keep 10 lines above/below cursor 
 set sidescrolloff=8                           " Keep 8 columns left/right of cursor
+set nocompatible
+
+"Fuzzy find
+set path=**
+set wildoptions=pum
 
 " Indentation
 set tabstop=1                                 " Tab width

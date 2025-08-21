@@ -20,6 +20,7 @@ vim.o.ignorecase = true                          -- Case insensitive search
 vim.o.smartcase = true                           -- Case sensitive if uppercase in search
 vim.o.hlsearch = true                           -- Don't highlight search results 
 vim.o.incsearch = true                           -- Show matches as you type
+vim.o.path = vim.o.path .. ",**"                -- Recursive find
 
 -- Visual settings
 vim.o.termguicolors = true                       -- Enable 24-bit colors
