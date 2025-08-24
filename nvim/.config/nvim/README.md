@@ -18,7 +18,7 @@ And install them with ` :MasonInstall <package name> `.
 Otherwise remove `Mason` and install them at user/system level. Once installed LSP should be **enabled** (check lua/plugins/lsp.lua). If `nvim-lspconfig` not installed, manual LSP configuration files should be added for each language server into a directory `lsp` ( automatically recognized by nvim ).
 
 ## Config structure
-The four main configuration places of this configuration are:
+The main configuration places of nvim configuration are:
 
 - `init.lua` the main entry point of Neovim configuration. It is executed at start time and it acts as the *central hub*. External plugins must be specified in here to be loaded.
 - `plugin/` directory is for global plugins or scripts to be sourced every time Neovim starts, regardless of the file type. Here are store:
@@ -26,7 +26,8 @@ The four main configuration places of this configuration are:
     * `keymaps`, containing custom mappings
     * `options`, global options of the editor
     * `autocmds`, commands that respond to global events
-    * `lsp`, LSP options, *enabling*, and keymaps
+    * `lsp`, LSP options and *enabling*
+    * `_plugins`, plugins management and setup. Starts with '_' because must be loaded first
 
 - `ftplugin/` directory is for **filetype-specific** plugins and settings. Files placed here are only loaded when you open a file of the corresponding type.
 - `lua/` designed for *modular Lua-based configuration*. These files
