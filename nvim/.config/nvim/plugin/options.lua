@@ -8,7 +8,6 @@ vim.cmd.colorscheme("vague")
 -- Basic settings
 vim.opt.number = true                              -- Line numbers
 vim.opt.relativenumber = true                      -- Relative line numbers
-vim.opt.cursorline = false                         -- Highlight current line
 vim.opt.wrap = false                               -- Wrap lines
 vim.opt.scrolloff = 10                             -- Keep 10 lines above/below cursor 
 vim.opt.sidescrolloff = 8                          -- Keep 8 columns left/right of cursor
@@ -30,7 +29,7 @@ vim.opt.path:append("**")                         -- Recursive find from nvim st
 vim.opt.termguicolors = true                                      -- Enable 24-bit colors
 vim.opt.signcolumn = "yes"                                        -- Always show sign column
 vim.opt.showmatch = true                                          -- Highlight matching brackets
-vim.opt.complete.opt = {"menuone","noinsert","noselect","fuzzy"}           -- Completion vim.options
+vim.opt.complete.opt = {"menuone","noinsert","noselect"}           -- Completion vim.options
 vim.opt.list = true                                               -- Sets how neovim will display certain whitespace characters in the editor.
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
@@ -38,15 +37,10 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 vim.opt.undofile = true                            -- Persistent undo
 vim.opt.updatetime = 300                           -- Faster completion
 vim.opt.timeoutlen = 500                           -- Key timeout duration
-vim.opt.autoread = true                            -- Auto reload files changed outside vim
 
 -- Split behavior
 vim.opt.splitbelow = true                          -- Horizontal splits go below
 vim.opt.splitright = true                          -- Vertical splits go right
-
--- Performance improvements
-vim.opt.redrawtime = 10000
-vim.opt.maxmempattern = 20000
 
 -- File Brower settings (Netrw)
 vim.g.netrw_banner = 0                          -- Disables the banner at the top of the netrw window to save space.
