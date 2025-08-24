@@ -12,9 +12,11 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- Exit terminal mode pressing <Esc>
 vim.keymap.set('t', '<Esc>', '<C-\\><C-N>')
 
---  Center curson when scrolling
-vim.keymap.set('n', '<C-d>', '<C-d>zz', {desc = 'Scroll down and center cursor'})
-vim.keymap.set('n', '<C-u>', '<C-u>zz', {desc = 'Scroll up and center cursor'})
+--  Center curson when scrolling/searching
+vim.keymap.set('n', '<C-d>', '<C-d>zz', {desc = 'Scroll down, centered'})
+vim.keymap.set('n', '<C-u>', '<C-u>zz', {desc = 'Scroll up, centered'})
+vim.keymap.set('n', 'n', 'nzzzv', { desc = 'Next search result, centered' })
+vim.keymap.set('n', 'N', 'Nzzzv', { desc = 'Prev search result, centered' })
 
 --  Use CTRL+<hjkl> to switch between windows
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
@@ -52,7 +54,6 @@ vim.keymap.set('v', '<leader>r', "\"hy:%s/<C-r>h//g<left><left>", { noremap = tr
 vim.keymap.set('n', '<leader>e', ':Ex<CR>', { noremap = true, silent = true, desc = 'Open [E]xplorer'})
 
 -- [[ Fzf-lua ]]
-vim.cmd("packadd fzf-lua")    -- Force reload plugin
 vim.keymap.set('n', '<leader>sf',  ':FzfLua files<CR>' , {desc = '[S]earch [F]iles' })
 vim.keymap.set('n', '<leader>sb', ':FzfLua buffers<CR>', {desc = '[S]earch [B]uffers' })
 vim.keymap.set('n', '<leader>sg', ':FzfLua live_grep<CR>', {desc = '[S]earch [G]rep' })

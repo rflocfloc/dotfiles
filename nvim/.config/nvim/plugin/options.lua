@@ -15,9 +15,9 @@ vim.opt.mouse = "a"                                -- Enable mouse support
 vim.opt.inccommand = 'split'                       -- Preview substitutions live, as you type!
 
 -- Indentation
-vim.opt.tabstop = 2                                -- Tab width
-vim.opt.shiftwidth = 2                             -- Indent width
-vim.opt.softtabstop = 2                            -- Soft tab stop
+vim.opt.tabstop = 4                                -- Tab width
+vim.opt.shiftwidth = 4                             -- Indent width
+vim.opt.softtabstop = 4                            -- Soft tab stop
 vim.opt.expandtab = true                           -- Use spaces instead of tabs
 vim.opt.breakindent = true                         -- Enable break indent
 
@@ -27,14 +27,17 @@ vim.opt.path:append("**")                         -- Recursive find from nvim st
 
 -- Visual settings
 vim.opt.termguicolors = true                                      -- Enable 24-bit colors
+vim.opt.guicursor = ""
 vim.opt.signcolumn = "yes"                                        -- Always show sign column
-vim.opt.showmatch = true                                          -- Highlight matching brackets
 vim.opt.complete.opt = {"menuone","noinsert","noselect"}           -- Completion vim.options
 vim.opt.list = true                                               -- Sets how neovim will display certain whitespace characters in the editor.
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- File handling
-vim.opt.undofile = true                            -- Persistent undo
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"    -- undo dir
+vim.opt.undofile = true                                   -- Persistent undo
 vim.opt.updatetime = 300                           -- Faster completion
 vim.opt.timeoutlen = 500                           -- Key timeout duration
 

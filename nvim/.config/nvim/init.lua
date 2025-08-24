@@ -1,6 +1,9 @@
--- ----------------
--- [[ PLUGINS ]]
--- ----------------
+-- ----------
+-- [[ INIT ]]
+-- ----------
+
+-- Custom plugins
+require("utils.statusline")
 
 -- Add plugins
 vim.pack.add({
@@ -11,8 +14,10 @@ vim.pack.add({
   { src = "https://github.com/mfussenegger/nvim-ansible.git"},                          -- LSP/treesitter syntax for ansible
   { src = "https://github.com/ibhagwan/fzf-lua.git", priority = 1000},                  -- fuzzy finder
   { src = "https://github.com/echasnovski/mini.icons.git"},                             -- icons
-  -- { src = "https://github.com/nvim-lualine/lualine.nvim.git", priority = 1000},         -- status line
   { src = "https://github.com/vague2k/vague.nvim", priority = 1000},                    -- colorscheme
+  { src = "https://github.com/ThePrimeagen/vim-be-good.git"},                           -- practice vim motions
+
+
 })
 
 -- Setup plugins
@@ -100,27 +105,5 @@ require("fzf-lua").setup({
     glob_separator = "%s%-%-", -- query separator pattern (lua): ' --'
   },
 })
-
--- require("lualine").setup({
---   icons_enabled = true,
---   theme = 'auto',
---   options = {
---     component_separators = "",
---     section_separators = { left = " ", right = " " },
---   },
---
---   sections = {
---     lualine_a = { { "mode",  right_padding = 2 } },
---     lualine_b = {'branch', 'diff', 'diagnostics'},
---     lualine_c = { "filename" },
---     lualine_x = {"lsp_status"},
---     lualine_y = {"filesize", "filetype"},
---     lualine_z = {
---       { "progress", separator = " ", padding = { left = 1, right = 0 } },
---       { "location", padding = { left = 0, right = 1 } },
---     },
---   },
--- })
-
 
 require("vague").setup({})
