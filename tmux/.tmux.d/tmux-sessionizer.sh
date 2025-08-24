@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Dirs to look for projects
 DIRS=(
   $HOME/Documents
   $HOME/Projects
@@ -8,29 +7,54 @@ DIRS=(
   $HOME/Projects/Personal
 )
 
-# if arg given open that as session, otherwise use fzf
+switch_to_tmux (){
+  if [[ -z $TMUX ]]; then
+    tmux attach-session -t "$1"
+  else
+    tmux switch-client -t "$1"
+  fi
+}
+
+tmux_has_session (){
+  tmux has-session -t "$1" 2>/dev/null
+}
+
 if [[ $# -eq 1 ]]; then
   SELECTED_PATH=$1
 else
-  SELECTED_PATH=$(fd . "${DIRS[@]}" --type=dir --max-depth=1 --full-path \
+  SELECTED_PATH=$(
+    fd . "${DIRS[@]}" --type=dir --max-depth=1 --full-path \
     | sed "s|^$HOME/||" \
-    | fzf --margin 10% --color="bw")
+    | fzf --margin 10% --color="bw"
+  )
   SELECTED_PATH="$HOME/$SELECTED_PATH"
 fi
 
-SESSION_NAME=$(basename "$SELECTED_PATH" | tr . _)
-
-# Check if the tmux session exists
-tmux has-session -t $SESSION_NAME 2>/dev/null
-if [ $? != 0 ]; then
-  # Create the tmux session and windows
-  tmux new-session -ds $SESSION_NAME -c $SELECTED_PATH
-  # Add more windows
-  tmux new-window -t $SESSION_NAME:1 -n "nvim" -c $SELECTED_PATH
-  tmux new-window -t $SESSION_NAME:2 -n "bash" -c $SELECTED_PATH
-  # Send command "open editor" to window
-  tmux send-keys -t $SESSION_NAME:1 "nvim" C-m
+if [[ -z "$SELECTED_PATH" ]]; then
+  echo "No path selected."
+  exit 1
 fi
 
-# Attach to the tmux session
-tmux switch-client -t "$SESSION_NAME"
+# if path does not exist create dir
+if [[ ! -d $SELECTED_PATH ]]; then
+  read -p "Directory '$SELECTED_PATH' doesn\'t exists. Create it? (y/n)" -n 1 -r
+  echo
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+    mkdir -p $SELECTED_PATH
+  fi
+fi
+
+SESSION_NAME=$(basename "$SELECTED_PATH" | tr . _)
+TMUX_RUNNING=$(pgrep tmux)
+
+if [[ -z $TMUX ]] && [[ -z $TMUX_RUNNING ]]; then
+  tmux new-session -s $SESSION_NAME -c $SELECTED_PATH
+  exit 0
+fi
+
+if ! tmux_has_session $SESSION_NAME; then
+  tmux new-session -ds $SESSION_NAME -c $SELECTED_PATH
+fi
+
+switch_to_tmux $SESSION_NAME
+exit 0
