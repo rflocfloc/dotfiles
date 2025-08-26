@@ -16,8 +16,6 @@ vim.pack.add({
   { src = "https://github.com/echasnovski/mini.icons.git"},                             -- icons
   { src = "https://github.com/vague2k/vague.nvim", priority = 1000},                    -- colorscheme
   { src = "https://github.com/ThePrimeagen/vim-be-good.git"},                           -- practice vim motions
-
-
 })
 
 -- Setup plugins

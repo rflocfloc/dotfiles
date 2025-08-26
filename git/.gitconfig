@@ -31,3 +31,5 @@
 
 	
 
+[init]
+	defaultBranch = main

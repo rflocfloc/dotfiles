@@ -1,65 +1,64 @@
-vim.cmd([[
-highlight StatusLineNormal guibg=#1e1e2e guifg=#a6adc8
-highlight StatusLineInsert guibg=#40a02b guifg=#1e1e2e
-highlight StatusLineVisual guibg=#8839ef guifg=#1e1e2e
-highlight StatusLineReplace guibg=#d20f39 guifg=#1e1e2e
-highlight StatusLineCommand guibg=#df8e1d guifg=#1e1e2e
-highlight StatusLineTerminal guibg=#179299 guifg=#1e1e2e
-highlight StatusLine       guibg=#303446 guifg=#c6d0f5
-]])
+local cmp = {} -- statusline components
 
-local mode_colors = {
-  n = "%#StatusLineNormal#",
-  i = "%#StatusLineInsert#",
-  v = "%#StatusLineVisual#",
-  V = "%#StatusLineVisual#",
-  ["\22"] = "%#StatusLineVisual#",
-  c = "%#StatusLineCommand#",
-  R = "%#StatusLineReplace#",
-  t = "%#StatusLineTerminal#",
-}
+-- status bar colors
+vim.api.nvim_create_autocmd({ "VimEnter", "ColorScheme" }, {
+  callback = function()
+    vim.api.nvim_set_hl(0, "StatusLineNormal", { bg = "#252530", fg ="#a6adc8", bold = true })
+    vim.api.nvim_set_hl(0, "StatusLineInsert", { bg = "#99b782", fg ="#1e1e2e", bold = true })
+    vim.api.nvim_set_hl(0, "StatusLineVisual", { bg = "#c9b1ca", fg ="#1e1e2e", bold = true })
+    vim.api.nvim_set_hl(0, "StatusLineReplace", { bg = "#e08398", fg ="#1e1e2e", bold = true })
+    vim.api.nvim_set_hl(0, "StatusLineCommand", { bg = "#f3be7c", fg ="#1e1e2e", bold = true })
+    vim.api.nvim_set_hl(0, "StatusLineTerminal", { bg = "#e08398", fg ="#1e1e2e", bold = true })
+    vim.api.nvim_set_hl(0, "StatusLine", { bg = "#1c1c1c", fg ="#cdcdcd", bold = true })
+  end,
+})
 
-local mode_names = {
-  n = "NORMAL",
-  i = "INSERT",
-  v = "VISUAL",
-  V = "V-LINE",
-  ["\22"] = "V-BLOCK",
-  c = "COMMAND",
-  R = "REPLACE",
-  t = "TERMINAL",
-}
+local hi_pattern = '%%#%s#%s%%*'
 
-local function lsp_status()
+function _G._statusline_component(name)
+  return cmp[name]()
+end
+
+function cmp.position()
+  return hi_pattern:format('StatusLineNormal',' %3l:%-2c ')
+end
+
+function cmp.lsp_status()
   local clients = vim.lsp.get_clients({ bufnr = 0 })
-  if #clients == 0 then return "LSP: Off" end
+  if #clients == 0 then return "  [none] " end
   local names = {}
-  for _, c in pairs(clients) do table.insert(names, c.name) end
-  return "LSP: " .. table.concat(names, ", ")
+  for _, c in pairs(clients) do
+    table.insert(names, c.name)
+  end
+  return " " .. table.concat(names, ", ")
 end
 
-function _G.statusline()
-  -- No mode section now
-
-  local filename = vim.fn.expand("%:t") ~= "" and vim.fn.expand("%:t") or "[No File]"
-  local filetype = vim.bo.filetype ~= "" and vim.bo.filetype or "none"
-  local cursor = "Ln " .. vim.fn.line(".") .. ", Col " .. vim.fn.col(".")
-
-  -- Left side: just filename now
-  local left = " " .. filename .. " "
-
-  -- Right side info
-  local right = string.format(" %s | %s | %s ", lsp_status(), filetype, cursor)
-
-  -- Calculate padding to push right section to the right
-  local width = vim.api.nvim_win_get_width(0)
-  local len_left = vim.fn.strdisplaywidth(left)
-  local len_right = vim.fn.strdisplaywidth(right)
-  local padding = width - len_left - len_right
-  if padding < 1 then padding = 1 end
-
-  return left .. string.rep(" ", padding) .. right
+function cmp.get_mode_name()
+  local mode = vim.api.nvim_get_mode().mode
+  local mode_names = {
+    ['n'] = hi_pattern:format('StatusLineNormal', ' N '),
+    ['i'] = hi_pattern:format('StatusLineInsert',' I '),
+    ['v'] = hi_pattern:format('StatusLineVisual',' V '),
+    ['V'] = hi_pattern:format('StatusLineVisual',' V '),
+    ['R'] = hi_pattern:format('StatusLineReplace',' R '),
+    ['c'] = hi_pattern:format('StatusLineCommand',' C '),
+    ['t'] = hi_pattern:format('StatusLineTerm',' T '),
+    [''] = hi_pattern:format('StatusLineNormal', ' N '),    -- fallback normal
+  }
+  return mode_names[mode] or ' '
 end
 
-vim.opt.statusline = "%!v:lua.statusline()"
 
+local statusline = {
+  '%{%v:lua._statusline_component("get_mode_name")%} ',
+  '%t',
+  '%r',
+  '%m',
+  '%=',
+  '%{%v:lua._statusline_component("lsp_status")%} ',
+  ' %{&filetype} ',
+  ' %2p%% ',
+  '%{%v:lua._statusline_component("position")%}'
+}
+
+vim.opt.statusline = table.concat(statusline, '')
