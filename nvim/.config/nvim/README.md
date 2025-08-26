@@ -5,7 +5,7 @@ Clone directory to your `~/.config/nvim`.
 
 ## System Dependencies
 Required packages:
-- `nvim` (0.12+) -- Uses `vim.pack`
+- `nvim` (0.11+) -- Uses `pack` directory
 - `lua`
 - `npm` (for `Mason`/LSP install)
 - `fzf` (for `fzf-lua`)
@@ -21,15 +21,14 @@ Otherwise remove `Mason` and install them at user/system level. Once installed L
 The main configuration places of nvim configuration are:
 
 - `init.lua` the main entry point of Neovim configuration. It is executed at start time and it acts as the *central hub*. External plugins must be specified in here to be loaded.
-- `plugin/` directory is for global plugins or scripts to be sourced every time Neovim starts, regardless of the file type. Here are store:
+- `plugin/` directory is for global plugins or scripts to be sourced every time Neovim starts, regardless of the file type. Some examples:
 
     * `keymaps`, containing custom mappings
     * `options`, global options of the editor
     * `autocmds`, commands that respond to global events
     * `lsp`, LSP options and *enabling*
-    * `_plugins`, plugins management and setup. Starts with '_' because must be loaded first
 
-- `ftplugin/` directory is for **filetype-specific** plugins and settings. Files placed here are only loaded when you open a file of the corresponding type.
+- `after/ftplugin/` directory is for **filetype-specific** plugins and settings. Files placed here are only loaded when you open a file of the corresponding type.
 - `lua/` designed for *modular Lua-based configuration*. These files
   **must be added** in `init.lua` or `plugin/` to be loaded. External
   plugins config are stored here.
