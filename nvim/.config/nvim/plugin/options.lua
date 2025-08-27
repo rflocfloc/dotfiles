@@ -6,8 +6,6 @@
 vim.opt.number = true                              -- Line numbers
 vim.opt.relativenumber = true                      -- Relative line numbers
 vim.opt.wrap = false                               -- Wrap lines
-vim.opt.scrolloff = 10                             -- Keep 10 lines above/below cursor 
-vim.opt.sidescrolloff = 8                          -- Keep 8 columns left/right of cursor
 vim.opt.mouse = "a"                                -- Enable mouse support
 vim.opt.inccommand = 'split'                       -- Preview substitutions live, as you type!
 vim.opt.confirm = true                          -- Confirm on exit
@@ -15,7 +13,6 @@ vim.opt.confirm = true                          -- Confirm on exit
 -- Indentation
 vim.opt.tabstop = 4                                -- Tab width
 vim.opt.shiftwidth = 4                             -- Indent width
-vim.opt.softtabstop = 4                            -- Soft tab stop
 vim.opt.expandtab = true                           -- Use spaces instead of tabs
 vim.opt.breakindent = true                         -- Enable break indent
 
@@ -28,7 +25,6 @@ vim.opt.termguicolors = true                                      -- Enable 24-b
 vim.opt.guicursor = ""
 vim.opt.signcolumn = "yes"                                        -- Always show sign column
 vim.opt.showmode = false                                            -- Show mode on command line
-vim.opt.complete.opt = {"menuone","noinsert","noselect"}           -- Completion vim.options
 vim.opt.list = true                                               -- Sets how neovim will display certain whitespace characters in the editor.
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
