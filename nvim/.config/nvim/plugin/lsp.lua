@@ -10,6 +10,7 @@ vim.lsp.enable "ansiblels"
 vim.lsp.enable "marksman"
 
 vim.diagnostic.config({virtual_text = false})      -- if true enables diagnostic text
+
 -- [[ keymaps ]]
--- vim.keymap.set('n', 'grf', function() vim.lsp.buf.format { async = true } end, { desc = 'LSP: format buffer' })
+vim.keymap.set('n', 'grf', function() vim.lsp.buf.format { async = true } end, { desc = 'LSP: format buffer' })
 
