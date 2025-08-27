@@ -14,7 +14,7 @@ opt.confirm = true                          -- Confirm on exit
 
 -- Indentation
 opt.tabstop = 4                                -- Tab width
-opt.softtabstog = 4                                -- Tab width
+opt.softtabstop = 4                                -- Tab width
 opt.shiftwidth = 4                             -- Indent width
 opt.expandtab = true                           -- Use spaces instead of tabs
 opt.breakindent = true                         -- Enable break indent
