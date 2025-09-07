@@ -9,15 +9,12 @@ vim.api.nvim_create_autocmd({ "VimEnter", "ColorScheme" }, {
     vim.api.nvim_set_hl(0, "StatusLineReplace", { bg = "#e08398", fg ="#1e1e2e", bold = true })
     vim.api.nvim_set_hl(0, "StatusLineCommand", { bg = "#f3be7c", fg ="#1e1e2e", bold = true })
     vim.api.nvim_set_hl(0, "StatusLineTerminal", { bg = "#e08398", fg ="#1e1e2e", bold = true })
-    vim.api.nvim_set_hl(0, "StatusLine", { bg = "#1c1c1c", fg ="#cdcdcd", bold = true })
+    vim.api.nvim_set_hl(0, "StatusLine", { bg = "#4f5258", fg ="#cdcdcd", bold = true })
+    vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "#1c1c1c", fg ="#cdcdcd", bold = true })
   end,
 })
 
 local hi_pattern = '%%#%s#%s%%*'
-
-function _G._statusline_component(name)
-  return cmp[name]()
-end
 
 function cmp.position()
   return hi_pattern:format('StatusLineNormal',' %3l:%-2c ')
@@ -48,10 +45,23 @@ function cmp.get_mode_name()
   return mode_names[mode] or ' '
 end
 
+function cmp.arglist()
+  local arglist_size = vim.fn.argc()
+  if arglist_size == 0 then
+    return hi_pattern:format('StatusLine', '')  -- Different color
+  end
+  local current_arg = vim.fn.argidx() + 1
+  return hi_pattern:format('StatusLineNormal', string.format(' [%d/%d] ', current_arg, arglist_size))
+end
+
+function _G._statusline_component(name)
+  return cmp[name]()
+end
 
 local statusline = {
-  '%{%v:lua._statusline_component("get_mode_name")%} ',
-  '%t',
+  '%{%v:lua._statusline_component("get_mode_name")%}',
+  '%{%v:lua._statusline_component("arglist")%}',
+  ' %t',
   '%r',
   '%m',
   '%=',
