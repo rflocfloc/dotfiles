@@ -1,12 +1,15 @@
 -- Thanks https://github.com/habamax/.vim/blob/master/plugin/find.vim
 
--- Cache for files
+-- Clear cache for files
 local files_cache = {}
 
--- Reset cache when entering command line
-vim.api.nvim_create_augroup('User_CmdCompleteResetFind', { clear = true })
+local function augroup(name)
+  return vim.api.nvim_create_augroup("User_" .. name, { clear = true })
+end
+
 vim.api.nvim_create_autocmd('CmdlineEnter', {
-  group = 'CmdCompleteResetFind',
+  group = augroup('CmdCompleteResetFind'),
+  desc = 'Reset cache when entering command line',
   pattern = ':',
   callback = function()
     files_cache = {}
