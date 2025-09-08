@@ -1,23 +1,10 @@
--- function _G.FdFindFiles(cmdarg, _cmdcomplete)
---   local fnames = vim.fn.systemlist("fd --hidden --type f")
---     if #cmdarg == 0 then
---         return fnames
---     else
---         return vim.fn.matchfuzzy(fnames, cmdarg)
---     end
--- end
---
--- if vim.fn.executable "fd" == 1 then
---     vim.o.findfunc = 'v:lua.FdFindFiles'
--- end
---
-local M = {}
+-- Thanks https://github.com/habamax/.vim/blob/master/plugin/find.vim
 
 -- Cache for files
 local files_cache = {}
 
 -- Reset cache when entering command line
-vim.api.nvim_create_augroup('CmdCompleteResetFind', { clear = true })
+vim.api.nvim_create_augroup('User_CmdCompleteResetFind', { clear = true })
 vim.api.nvim_create_autocmd('CmdlineEnter', {
   group = 'CmdCompleteResetFind',
   pattern = ':',
@@ -44,7 +31,7 @@ local function find_cmd()
 end
 
 -- Main find function
-function M.find(cmd_arg, cmd_complete)
+function _G.Find(cmd_arg, cmd_complete)
   if vim.tbl_isempty(files_cache) then
     local cmd = find_cmd()
 
@@ -72,10 +59,5 @@ function M.find(cmd_arg, cmd_complete)
   end
 end
 
--- Set the find function globally so it can be used by Vim
-_G.Find = M.find
-
 -- Set the findfunc option
 vim.opt.findfunc = 'v:lua.Find'
-
-return M

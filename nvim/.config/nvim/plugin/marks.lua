@@ -1,3 +1,5 @@
+-- Thanks https://github.com/habamax/.vim/blob/master/plugin/marks.vim
+
 -- Define signs for lowercase marks (a-z)
 for i = 97, 122 do  -- ASCII codes for a-z
   local char = string.char(i)

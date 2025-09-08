@@ -1,6 +1,3 @@
-vim.g.mapleader =  " "
-vim.g.maplocalleader = " "
-
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', {desc = "<Esc> to clear search highlights"})
 vim.keymap.set('t', '<Esc>', '<C-\\><C-N>', {desc = "<Esc> to exit terminal mode"})
 
