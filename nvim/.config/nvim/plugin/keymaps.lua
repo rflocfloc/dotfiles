@@ -13,7 +13,7 @@ vim.keymap.set('x', '<leader>y', [["+y]], { noremap = true, silent = true, desc 
 
 vim.keymap.set('v', '<leader>r', "\"hy:%s/<C-r>h//g<left><left>", { noremap = true, silent = true, desc = 'Replace selection globally' })
 
-vim.keymap.set('n', '<C-d>', '<C-d>zz', {desc = 'Scroll down, centered'})
-vim.keymap.set('n', '<C-u>', '<C-u>zz', {desc = 'Scroll up, centered'})
-vim.keymap.set('n', 'n', 'nzzzv', { desc = 'Next search result, centered' })
-vim.keymap.set('n', 'N', 'Nzzzv', { desc = 'Prev search result, centered' })
+vim.keymap.set('n', '<C-d>', '<C-d>zz', {noremap = true, silent = true, desc = 'Scroll down, centered'})
+vim.keymap.set('n', '<C-u>', '<C-u>zz', {noremap = true, silent = true, desc = 'Scroll up, centered'})
+vim.keymap.set('n', 'n', 'nzzzv', {noremap = true, silent = true,  desc = 'Next search result, centered' })
+vim.keymap.set('n', 'N', 'Nzzzv', {noremap = true, silent = true,  desc = 'Prev search result, centered' })

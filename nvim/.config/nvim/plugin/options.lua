@@ -1,5 +1,6 @@
 -- Set leader
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- Basic settings
 vim.opt.number = true
