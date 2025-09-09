@@ -7,7 +7,10 @@
 vim.pack.add({
   { src = "https://github.com/nvim-treesitter/nvim-treesitter.git" },
   { src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git" },
-  { src = "https://github.com/ibhagwan/fzf-lua.git", priority = 1000},
+  { src = "https://github.com/ibhagwan/fzf-lua.git"},
+  { src = "https://github.com/rebelot/kanagawa.nvim.git"},
+  { src = "https://github.com/rose-pine/neovim.git", name="rose-pine"},
+  { src = "https://github.com/shaunsingh/nord.nvim.git"},
 })
 
 -- -----------------

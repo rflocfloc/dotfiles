@@ -1,4 +1,0 @@
-#!/bin/bash
-
-# select which nvim config to use
-NVIM_APPNAME="nvim/default"
