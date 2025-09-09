@@ -1,12 +1,23 @@
-require"fzf-lua".setup({
-    "telescope",
+local actions = require'fzf-lua.actions'
+require 'fzf-lua'.setup({
+    'telescope',
+    actions = {
+        files = {
+            -- instead of the default action 'actions.file_edit_or_qf'
+            -- it's important to define all other actions here as this
+            -- table does not get merged with the global defaults
+            ["default"]       = actions.file_edit,
+            ["ctrl-s"]        = actions.file_split,
+            ["ctrl-v"]        = actions.file_vsplit,
+            ["ctrl-t"]        = actions.file_tabedit,
+            ["alt-q"]         = actions.file_sel_to_qf,
+        },
+    },
 })
 
--- keymaps
-vim.keymap.set( 'n', "<leader>sf", ":FzfLua files<cr>", {desc = "Find files" }),
-vim.keymap.set( 'n', "<leader>sg", ":FzfLua live_grep<cr>", {desc = "Live grep" }),
-vim.keymap.set( 'n', "<leader>sb", ":FzfLua buffers<cr>", {desc = "Find buffers" }),
-vim.keymap.set( 'n', "<leader>sa", ":FzfLua args<cr>", {desc = "Find args" }),
-vim.keymap.set( 'n', "<leader>sh", ":FzfLua help_tags<cr>", {desc = "Help tags" }),
-vim.keymap.set( 'n', "<leader>sr", ":FzfLua oldfiles<cr>", {desc = "Recent files" }),
+-- -- keymaps
+local fzf = require('fzf-lua')
+vim.keymap.set('n', '<leader>sf', fzf.files, { desc = 'Search files' })
+vim.keymap.set('n', '<leader>sg', fzf.live_grep, { desc = 'Live grep' })
+vim.keymap.set('n', '<leader>sb', fzf.buffers, { desc = 'Search buffers' })
 

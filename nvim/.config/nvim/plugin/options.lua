@@ -1,3 +1,6 @@
+-- Set leader
+vim.g.mapleader = " "
+
 -- Basic settings
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -37,3 +40,8 @@ vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 3
 vim.g.netrw_showhidden = 1 -- show dotfiles
 vim.g.netrw_winsize = 20
+
+-- Remove checkhealth provider warnings
+vim.g.loaded_node_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_python3_provider = 0

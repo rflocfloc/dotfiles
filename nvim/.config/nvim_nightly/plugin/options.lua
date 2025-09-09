@@ -1,3 +1,6 @@
+-- Set leader
+vim.g.mapleader = " "
+
 -- Basic settings
 vim.opt.number = true
 vim.opt.relativenumber = true

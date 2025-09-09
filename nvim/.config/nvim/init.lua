@@ -1,7 +1,7 @@
 -- -----------------
 -- [[ Colorscheme ]]
 -- -----------------
-
+vim.g.clipboard = "wl-clipboard"
 -- Set background preference
 vim.opt.background = 'dark'
 
