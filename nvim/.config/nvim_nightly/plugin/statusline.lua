@@ -162,40 +162,6 @@ function StatuslineGetFilename()
   return result
 end
 
--- Get Git branch (cached for performance) - Global function
-local git_cache = { branch = '', last_check = 0, cwd = '' }
-
-function StatuslineGetGitBranch()
-  local cwd = vim.fn.getcwd()
-  local now = vim.fn.localtime()
-
-  -- Cache for 5 seconds and per directory
-  if git_cache.cwd == cwd and (now - git_cache.last_check) < 5 then
-    if git_cache.branch ~= '' then
-      return '%#StGit#  ' .. git_cache.branch .. ' %*'
-    else
-      return ''
-    end
-  end
-
-  git_cache.cwd = cwd
-  git_cache.last_check = now
-
-  local handle = io.popen('git branch --show-current 2>/dev/null')
-  if handle then
-    git_cache.branch = handle:read('*a'):gsub('\n', '')
-    handle:close()
-  else
-    git_cache.branch = ''
-  end
-
-  if git_cache.branch ~= '' then
-    return '%#StGit#  ' .. git_cache.branch .. ' %*'
-  end
-
-  return ''
-end
-
 -- Get LSP status (safe version) - Global function
 function StatuslineGetLspStatus()
   -- Check if LSP is available at all
@@ -389,7 +355,6 @@ function StatuslineBuild()
     '%{%v:lua.StatuslineGetMode()%}',
     '%{%v:lua.StatuslineGetFilename()%}',
     '%{%v:lua.StatuslineGetArglist()%}',
-    '%{%v:lua.StatuslineGetGitBranch()%}',
     '%<', -- Truncate here if needed
     '%=', -- Switch to right side
     '%{%v:lua.StatuslineGetDiagnostics()%}',

@@ -5,8 +5,8 @@
 -- For nvim 0.12
 
 vim.pack.add({
-  { src = "https://github.com/nvim-treesitter/nvim-treesitter.git" },
-  { src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git" },
+  { src = "https://github.com/nvim-treesitter/nvim-treesitter.git", branch = 'main'},
+  { src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git", branch = 'main' },
   { src = "https://github.com/ibhagwan/fzf-lua.git"},
   { src = "https://github.com/rebelot/kanagawa.nvim.git"},
   { src = "https://github.com/rose-pine/neovim.git", name="rose-pine"},
