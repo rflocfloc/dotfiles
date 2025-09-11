@@ -1,4 +1,5 @@
-theme = Kanagawa Dragon
+#theme = Kanagawa Dragon
+theme = tokyonight_night
 
 #-- [[ Themes and interface ]]
 font-family = "OverpassM Nerd Font Mono"

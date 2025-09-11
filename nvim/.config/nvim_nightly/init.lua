@@ -11,6 +11,7 @@ vim.pack.add({
   { src = "https://github.com/rebelot/kanagawa.nvim.git"},
   { src = "https://github.com/rose-pine/neovim.git", name="rose-pine"},
   { src = "https://github.com/shaunsingh/nord.nvim.git"},
+  { src = "https://github.com/folke/tokyonight.nvim.git"},
 })
 
 -- -----------------
