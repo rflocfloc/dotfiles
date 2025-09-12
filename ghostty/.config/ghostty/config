@@ -1,5 +1,5 @@
 #-- [[ Themes and interface ]]
-# theme = Kanagawa Dragon
+theme = "vague"
 
 font-family = "OverpassM Nerd Font Mono"
 # font-family = "JetBrainsMono Nerd Font"

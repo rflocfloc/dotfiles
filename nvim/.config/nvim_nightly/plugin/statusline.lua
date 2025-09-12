@@ -1,38 +1,12 @@
--- Theme-aware enhanced statusline for plugin/statusline.lua
-
--- Get current mode with colors (Global function)
-function StatuslineGetMode()
-  local modes = {
-    ['n'] = { 'N'},
-    ['i'] = { 'I'},
-    ['v'] = { 'V'},
-    ['V'] = { 'V'},
-    [''] = { 'V'},
-    ['c'] = { 'C'},
-    ['R'] = { 'R'},
-    ['r'] = { 'R'},
-    ['s'] = { 'S'},
-    ['S'] = { 'S'},
-    [''] = { 'S'},
-    ['t'] = { 'T'},
-
-}
-  local mode = vim.api.nvim_get_mode().mode
-  local mode_info = modes[mode] or { 'TERMINAL'}
-
-  return string.format('%%#%s#- %s - %%*', mode_info[2], mode_info[1])
-end
-
--- Get filename with path intelligence (Global function)
 function StatuslineGetFilename()
   local filename = vim.fn.expand('%:t')
   local filepath = vim.fn.expand('%:~:.:h')
 
   if filename == '' then
-    return '%#StFilename# [No Name] %*'
+    return '%#StFilename# 󰈔 [No Name] %*'
   end
 
-  local result = '%#StFilename# '
+  local result = '%#StFilename# 󰈔 '
 
   -- Show relative path if not in current directory
   if filepath ~= '.' and filepath ~= '' then
@@ -48,13 +22,12 @@ function StatuslineGetFilename()
 
   -- Add readonly flag
   if vim.bo.readonly then
-    result = result .. '%#StReadonly# %*'
+    result = result .. '%#StReadonly# %*'
   end
 
   return result
 end
 
--- Get LSP status (safe version) - Global function
 function StatuslineGetLspStatus()
   -- Check if LSP is available at all
   if not vim.lsp then
@@ -87,12 +60,51 @@ function StatuslineGetLspStatus()
     return ''
   end
 
-  return '%#StLsp# LSP:' .. table.concat(names, ',') .. ' %*'
+  return '%#StLsp#  ' .. table.concat(names, ',') .. ' %*'
 end
 
--- Get diagnostics count (safe version) - Global function
+local function setup_diagnostic_highlights()
+  -- Get the diagnostic highlight groups from the current theme
+  local diagnostic_error = vim.api.nvim_get_hl(0, { name = 'DiagnosticError' })
+  local diagnostic_warn = vim.api.nvim_get_hl(0, { name = 'DiagnosticWarn' })
+  local diagnostic_info = vim.api.nvim_get_hl(0, { name = 'DiagnosticInfo' })
+  local diagnostic_hint = vim.api.nvim_get_hl(0, { name = 'DiagnosticHint' })
+
+  vim.api.nvim_set_hl(0, 'StError', {
+    fg = diagnostic_error.fg or '#ff5555',
+    bg = 'NONE',
+    bold = true
+  })
+
+  vim.api.nvim_set_hl(0, 'StWarn', {
+    fg = diagnostic_warn.fg or '#ffb86c',
+    bg = 'NONE',
+    bold = true
+  })
+
+  vim.api.nvim_set_hl(0, 'StInfo', {
+    fg = diagnostic_info.fg or '#8be9fd',
+    bg = 'NONE',
+    bold = true
+  })
+
+  vim.api.nvim_set_hl(0, 'StHint', {
+    fg = diagnostic_hint.fg or '#bd93f9',
+    bg = 'NONE',
+    bold = true
+  })
+end
+
+-- Call setup initially
+setup_diagnostic_highlights()
+
+-- Auto-refresh when colorscheme changes
+vim.api.nvim_create_autocmd('ColorScheme', {
+  pattern = '*',
+  callback = setup_diagnostic_highlights,
+  desc = 'Refresh diagnostic statusline highlights'
+})
 function StatuslineGetDiagnostics()
-  -- Check if diagnostics API is available
   if not vim.diagnostic or not vim.diagnostic.get then
     return ''
   end
@@ -103,9 +115,8 @@ function StatuslineGetDiagnostics()
   end
 
   local counts = { errors = 0, warnings = 0, info = 0, hints = 0 }
-
-  -- Check if severity constants are available
   local severity = vim.diagnostic.severity
+
   if not severity then
     return ''
   end
@@ -123,57 +134,49 @@ function StatuslineGetDiagnostics()
   end
 
   local result = ''
+  local icons = {
+    error = '✗',
+    warn = '⚠',
+    info = 'ⓘ',
+    hint = ''
+  }
+
   if counts.errors > 0 then
-    result = result .. '%#StError# E:' .. counts.errors .. ' %*'
+    result = result .. '%#StError#' .. icons.error .. counts.errors .. ' %*'
   end
+
   if counts.warnings > 0 then
-    result = result .. '%#StWarn# W:' .. counts.warnings .. ' %*'
+    result = result .. '%#StWarn#' .. icons.warn .. counts.warnings .. ' %*'
   end
+
   if counts.info > 0 then
-    result = result .. '%#StInfo# I:' .. counts.info .. ' %*'
+    result = result .. '%#StInfo#' .. icons.info .. counts.info .. ' %*'
   end
 
-  return result
+  if counts.hints > 0 then
+    result = result .. '%#StHint#' .. icons.hint .. counts.hints .. ' %*'
+  end
+
+  return result ~= '' and ' ' .. result .. ' ' or ''
 end
 
--- Get file encoding and format - Global function
-function StatuslineGetFileInfo()
-  local encoding = vim.bo.fileencoding
-  if encoding == '' then
-    encoding = vim.o.encoding
-  end
-
-  local format = vim.bo.fileformat
-  local result = ''
-
-  if encoding ~= 'utf-8' then
-    result = result .. encoding .. ' '
-  end
-
-  if format ~= 'unix' then
-    result = result .. format .. ' '
-  end
-
-  return result ~= '' and ' ' .. result or ''
-end
-
--- Get filetype with icon - Global function
 function StatuslineGetFiletype()
   local ft = vim.bo.filetype
   if ft == '' then return '' end
 
   -- Simple icon mapping
   local icons = {
-    lua = '',
-    vim = '',
-    python = '',
+    lua = '󰢱',
+    vim = '',
+    python = '󰌠',
+    r = '',
     javascript = '',
     typescript = '',
     html = '',
     css = '',
     json = '',
-    yaml = '',
-    markdown = '',
+    yaml = '',
+    markdown = '󰍔',
     sh = '',
     zsh = '',
     fish = '',
@@ -201,17 +204,10 @@ function StatuslineGetSearchCount()
   return string.format(' [%d/%d] ', search.current, search.total)
 end
 
--- Get Arglist info
 function StatuslineGetArglist()
-  -- Ultra-safe version with extensive error handling
   local function safe_call(func, ...)
     local ok, result = pcall(func, ...)
     return ok and result or nil
-  end
-
-  -- Check if we even have vim.fn
-  if not vim or not vim.fn then
-    return ''
   end
 
   local arglist_size = safe_call(vim.fn.argc)
@@ -236,24 +232,22 @@ function StatuslineGetArglist()
     return ''
   end
 
-  -- Safe string formatting
   local ok, result = pcall(string.format, '%%#StFilename#[%d/%d] %%*', current_arg, arglist_size)
   return ok and result or ''
 end
 
--- Build the complete statusline - Global function
+-- Build the complete statusline
 function StatuslineBuild()
   local parts = {
-    -- '%{%v:lua.StatuslineGetMode()%}',
     '%{%v:lua.StatuslineGetArglist()%}',
     '%{%v:lua.StatuslineGetFilename()%}',
+    '%{%v:lua.StatuslineGetDiagnostics()%}',
+
     '%<', -- Truncate here if needed
     '%=', -- Switch to right side
-    '%{%v:lua.StatuslineGetDiagnostics()%}',
-    '%{%v:lua.StatuslineGetLspStatus()%}',
-    '%{%v:lua.StatuslineGetFileInfo()%}',
-    '%{%v:lua.StatuslineGetFiletype()%}',
     '%{%v:lua.StatuslineGetSearchCount()%}',
+    '%{%v:lua.StatuslineGetLspStatus()%}',
+    '%{%v:lua.StatuslineGetFiletype()%}',
     '%#StPosition# %3l:%-2c %*',
     '%#StPercent# %3p%% %*',
   }

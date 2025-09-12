@@ -1,6 +1,9 @@
 local actions = require'fzf-lua.actions'
 require 'fzf-lua'.setup({
     'telescope',
+    defaults = {
+        file_icons   = "mini"
+    },
     actions = {
         files = {
             ["default"]       = actions.file_edit,
