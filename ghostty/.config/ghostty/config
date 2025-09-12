@@ -1,7 +1,6 @@
-#theme = Kanagawa Dragon
-theme = tokyonight_night
-
 #-- [[ Themes and interface ]]
+# theme = Kanagawa Dragon
+
 font-family = "OverpassM Nerd Font Mono"
 # font-family = "JetBrainsMono Nerd Font"
 
@@ -10,7 +9,6 @@ maximize = true
 gtk-titlebar = false
 
 # -- [[ System options ]]
-shell-integration-features = sudo,no-cursor,no-title
 copy-on-select = true
 
 # -- [[ Keybindings ]]
