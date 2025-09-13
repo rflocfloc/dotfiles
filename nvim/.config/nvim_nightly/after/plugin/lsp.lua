@@ -1,6 +1,7 @@
 -- ----------------
 -- [[ Enable LSP ]]
 -- ----------------
+vim.lsp.enable('bashls')
 vim.lsp.enable('pyright')
 vim.lsp.enable('lua_ls')
 vim.lsp.enable('r_language_server')
