@@ -1,48 +1,54 @@
+local opt = vim.opt
+local g = vim.g
+local o = vim.o
+
 -- Set leader
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+g.mapleader = " "
+g.maplocalleader = " "
 
 -- Basic settings
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.wrap = false
-vim.opt.inccommand = 'split'
-vim.opt.confirm = true
+opt.number = true
+opt.relativenumber = true
+opt.wrap = false
+opt.inccommand = 'split'
+opt.confirm = true
 
 -- Open windows right/low
-vim.opt.splitright = true
-vim.opt.splitbelow = true
+opt.splitright = true
+opt.splitbelow = true
 
 -- Indentation
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+opt.tabstop = 4
+opt.shiftwidth = 4
+opt.expandtab = true
 
 -- Search settings
-vim.opt.smartcase = true
+opt.smartcase = true
 
 -- Visual settings
-vim.opt.termguicolors = true
-vim.opt.guicursor = ""
-vim.opt.signcolumn = "yes"
-vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+opt.termguicolors = true
+opt.guicursor = ""
+opt.signcolumn = "yes"
+opt.list = true
+opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+o.winborder = "rounded"
+
 
 -- File handling/history
-vim.opt.swapfile = false
-vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.opt.undofile = true
-vim.opt.updatetime = 300
-vim.opt.timeoutlen = 500
+opt.swapfile = false
+opt.backup = false
+opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+opt.undofile = true
+opt.updatetime = 300
+opt.timeoutlen = 500
 
 -- Netrw options
-vim.g.netrw_banner = 0
-vim.g.netrw_liststyle = 3
-vim.g.netrw_showhidden = 1 -- show dotfiles
-vim.g.netrw_winsize = 20
+g.netrw_banner = 0
+-- g.netrw_liststyle = 3
+g.netrw_showhidden = 1 -- show dotfiles
+g.netrw_winsize = 20
 
 -- Remove checkhealth provider warnings
-vim.g.loaded_node_provider = 0
-vim.g.loaded_perl_provider = 0
-vim.g.loaded_python3_provider = 0
+g.loaded_node_provider = 0
+g.loaded_perl_provider = 0
+g.loaded_python3_provider = 0
