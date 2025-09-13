@@ -53,15 +53,15 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     command = [[%s/\s\+$//e]],
 })
 
-vim.api.nvim_create_autocmd('CmdlineLeave', {
-    pattern = '*',
-    group = augroup('ClearCmdline'),
-    desc = "clear command line 3 seconds after leaving command mode",
-    callback = function()
-        vim.defer_fn(function()
-            if vim.fn.mode() == 'n' then
-                vim.cmd('echo ""')
-            end
-        end, 1000) -- 1000ms = 1 seconds
-    end,
-})
+-- vim.api.nvim_create_autocmd('CmdlineLeave', {
+--     pattern = '*',
+--     group = augroup('ClearCmdline'),
+--     desc = "clear command line 3 seconds after leaving command mode",
+--     callback = function()
+--         vim.defer_fn(function()
+--             if vim.fn.mode() == 'n' then
+--                 vim.cmd('echo ""')
+--             end
+--         end, 1000) -- 1000ms = 1 seconds
+--     end,
+-- })
