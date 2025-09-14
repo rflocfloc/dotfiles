@@ -1,1 +1,1 @@
-alias nvim='NVIM_APPNAME="nvim_desktop" nvim'
+alias nvim='NVIM_APPNAME="nvim" nvim'
