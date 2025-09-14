@@ -1,27 +1,4 @@
-[submodule "nvim/.config/nvim/pack/plugins/fzf-lua"]
-	path = nvim/.config/nvim/pack/plugins/fzf-lua
-	url = https://github.com/ibhagwan/fzf-lua.git
-[submodule "nvim/.config/nvim/pack/plugins/mini.icons"]
-	path = nvim/.config/nvim/pack/plugins/mini.icons
-	url = https://github.com/echasnovski/mini.icons.git
-[submodule "nvim/.config/nvim/pack/plugins/vague.nvim"]
-	path = nvim/.config/nvim/pack/plugins/vague.nvim
-	url = https://github.com/vague2k/vague.nvim
-[submodule "nvim/.config/nvim/pack/plugins/nvim-ansible"]
-	path = nvim/.config/nvim/pack/plugins/nvim-ansible
-	url = https://github.com/mfussenegger/nvim-ansible.git
-[submodule "nvim/.config/nvim/pack/plugins/nvim-treesitter"]
-	path = nvim/.config/nvim/pack/plugins/nvim-treesitter
-	url = https://github.com/nvim-treesitter/nvim-treesitter.git
-[submodule "nvim/.config/nvim/pack/plugins/mason.nvim"]
-	path = nvim/.config/nvim/pack/plugins/mason.nvim
-	url = https://github.com/mason-org/mason.nvim.git
-[submodule "nvim/.config/nvim/pack/plugins/nvim-lspconfig"]
-	path = nvim/.config/nvim/pack/plugins/nvim-lspconfig
-	url = https://github.com/neovim/nvim-lspconfig.git
 [submodule "nvim/.config/nvim"]
-	path = nvim/.config/nvim
-	url = https://github.com/rflocfloc/nvim.git
-[submodule "nvim/.config/nvim_plugins"]
-	path = nvim/.config/nvim_plugins
-	url = git@github.com:rflocfloc/nvim.git
+    path = nvim/.config/nvim
+    url = git@github.com:rflocfloc/nvim.git
+    branch = main
