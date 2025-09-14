@@ -22,3 +22,6 @@
 [submodule "nvim/.config/nvim"]
 	path = nvim/.config/nvim
 	url = https://github.com/rflocfloc/nvim.git
+[submodule "nvim/.config/nvim_plugins"]
+	path = nvim/.config/nvim_plugins
+	url = git@github.com:rflocfloc/nvim.git
