@@ -51,7 +51,7 @@ set number                                    " Line numbers
 set relativenumber                            " Relative line numbers
 set nocursorline                              " No highlight current line
 set nowrap                                    " Do not wrap lines
-set scrolloff=10                              " Keep 10 lines above/below cursor 
+set scrolloff=10                              " Keep 10 lines above/below cursor
 set sidescrolloff=8                           " Keep 8 columns left/right of cursor
 set nocompatible
 
@@ -71,7 +71,7 @@ set breakindent                               " Enable break indent
 " Search settings
 set ignorecase                            " Case insensitive search
 set smartcase                             " Case sensitive if uppercase in search
-set hlsearch                              " Don't highlight search results 
+set hlsearch                              " Don't highlight search results
 set incsearch                             " Show matches as you type
 
 " Visual settings
@@ -84,6 +84,7 @@ set showmode                              " show mode in command line (like '<'>
 
 " File handling
 set undofile                             " Persistent undo
+set undodir=~/.vim/undo-dir             " set undo dir
 set updatetime=300                           " Faster completion
 set timeoutlen=500                           " Key timeout duration
 set autoread                             " Auto reload files changed outside vim
