@@ -10,6 +10,25 @@ gtk-titlebar = false
 
 # -- [[ System options ]]
 copy-on-select = true
+# custom-shader = shaders/cursor_smear.glsl
 
 # -- [[ Keybindings ]]
+# keybind = global:ctrl+shift+t=toggle_quick_terminal
+keybind = ctrl+space>n=new_window
+keybind = ctrl+space>w=close_window
+
+keybind = ctrl+space>t=new_tab
+keybind = ctrl+space>T=close_tab:this
+keybind = ctrl+a>n=next_tab
+keybind = ctrl+a>p=previous_tab
+
+keybind = ctrl+space>v=new_split:right
+keybind = ctrl+space>s=new_split:down
+keybind = ctrl+space>x=close_surface
+keybind = ctrl+space>enter=toggle_split_zoom
+
+keybind = ctrl+space>h=goto_split:left
+keybind = ctrl+space>j=goto_split:bottom
+keybind = ctrl+space>k=goto_split:top
+keybind = ctrl+space>l=goto_split:right
 
