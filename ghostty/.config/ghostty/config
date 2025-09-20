@@ -4,20 +4,18 @@ theme = "vague"
 font-family = "OverpassM Nerd Font Mono"
 # font-family = "JetBrainsMono Nerd Font"
 
-# -- [[ Windows ]]
 maximize = true
 gtk-titlebar = false
+custom-shader = shaders/cursor_smear.glsl
 
 # -- [[ System options ]]
 copy-on-select = true
-# custom-shader = shaders/cursor_smear.glsl
 
 # -- [[ Keybindings ]]
-# keybind = global:ctrl+shift+t=toggle_quick_terminal
 keybind = ctrl+space>shift+n=new_window
 keybind = ctrl+space>w=close_window
 
-keybind = ctrl+space>t=new_tab
+keybind = ctrl+space>c=new_tab
 keybind = ctrl+space>shift+t=close_tab:this
 keybind = ctrl+space>n=next_tab
 keybind = ctrl+space>p=previous_tab
